@@ -66,9 +66,3 @@ Contributions are welcome! Please submit pull requests with bug fixes or new fea
 License
 This project is released under the MIT License.
 
-
-
-You can customize the README to provide more information about your package, installation instructions,
- usage examples, and other relevant information. When you're done, save the `README.md`
- file in the root directory of your package. The README will be displayed when users visit your package's repository on platforms like GitHub or GitLab.
-
