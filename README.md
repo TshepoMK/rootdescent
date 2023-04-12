@@ -55,8 +55,8 @@ print(f"Integral: {integral}")
 
 To install RootDescent, download the package and run the following command in your terminal or command prompt:
 
-``` pip install rootdescent ```
-
+1. ``` pip install rootdescent ```
+2. Clone this repository: ``` https://github.com/TshepoMK/rootdescent.git ```
 
 
 
