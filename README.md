@@ -50,11 +50,12 @@ print(f"Root: {root}")
 integral = integration.trapezoidal_rule(g, 1, 4, n=100)
 print(f"Integral: {integral}")
 
+```
 ## Installation
 
 To install RootDescent, download the package and run the following command in your terminal or command prompt:
 
-pip install rootdescent
+``` pip install rootdescent ```
 
 
 
