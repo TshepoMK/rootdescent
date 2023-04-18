@@ -12,32 +12,47 @@ This class provides methods for finding the roots of functions using various num
 
 - Bisection method (`bisection`)
 
-```
-The bisection method is a root-finding method that repeatedly bisects an interval and then selects a
-subinterval in which a root must lie for further processing.
-It is a simple and robust numerical method for approximating the root of a continuous function in a given interval.
+## Bisection Method
 
-Given a continuous function f(x) and an interval [a, b] such that f(a) and f(b) have opposite signs (i.e., f(a)*f(b) < 0),
-the bisection method can be used to find an approximation of the root. The method works as follows:
+The bisection method is a root-finding method that repeatedly bisects an interval and then selects a subinterval in which a root must lie for further processing. It is a simple and robust numerical method for approximating the root of a continuous function in a given interval.
 
-Compute the midpoint c of the interval [a, b]
+Given a continuous function $f(x)$ and an interval $[a, b]$ such that $f(a)$ and $f(b)$ have opposite signs (i.e., $f(a) \cdot f(b) < 0$), the bisection method can be used to find an approximation of the root. The method works as follows:
+
+1. Compute the midpoint $c$ of the interval $[a, b]$: $$c = \frac{a + b}{2}$$
+2. Evaluate the function $f(c)$ at the midpoint $c$.
+3. Determine the next interval based on the signs of $f(a)$, $f(b)$, and $f(c)$:
+   - If $f(c) == 0$, then $c$ is the root.
+   - If $f(a) \cdot f(c) < 0$, the root lies in the interval $[a, c]$, so update $b = c$.
+   - If $f(b) \cdot f(c) < 0$, the root lies in the interval $[c, b]$, so update $a = c$.
+4. Repeat steps 1-3 until the desired level of accuracy is achieved, or the maximum number of iterations is reached.
 
 
-c = (a + b) / 2
 
-Evaluate the function f(c) at the midpoint c.
-
-Determine the next interval based on the signs of f(a), f(b), and f(c):
-
-If f(c) == 0, then c is the root.
-If f(a)*f(c) < 0, the root lies in the interval [a, c], so update b = c.
-If f(b)*f(c) < 0, the root lies in the interval [c, b], so update a = c.
-
-Repeat steps 1-3 until the desired level of accuracy is achieved, or the maximum number of iterations is reached.
-
-```
 
 - Fixed-point iteration (`fixed_point_iteration`)
+
+## Fixed Point Iteration and Formula
+
+Fixed point iteration is a numerical method used to find the solution of an equation in the form x = g(x). The idea is to iteratively refine the approximation of the solution by applying the function g(x) to the previous approximation. Fixed point iteration converges to the true solution if the function g(x) fulfills certain conditions, such as having a derivative with absolute value less than 1 in the neighborhood of the fixed point.
+
+The fixed-point iteration formula is given by:
+
+$$
+x_{n+1} = g(x_n)
+$$
+
+where $x_n$ is the current approximation of the solution, $g(x)$ is the function that transforms x, and $x_{n+1}$ is the next approximation of the solution.
+
+To perform fixed point iteration, follow these steps:
+
+1. Choose an initial approximation $x_0$.
+2. Calculate $x_{n+1}$ using the formula $x_{n+1} = g(x_n)$.
+3. Check for convergence. If the difference between $x_{n+1}$ and $x_n$ is smaller than a predetermined tolerance, then the iteration has converged, and $x_{n+1}$ is the solution. Otherwise, continue iterating.
+4. Set $x_n = x_{n+1}$, and repeat steps 2 and 3 until convergence is achieved or a maximum number of iterations is reached.
+
+It is important to note that fixed point iteration may not always converge or could converge slowly, depending on the function $g(x)$ and the initial approximation. In such cases, alternative methods like the Newton-Raphson method or bisection method might be more appropriate.
+
+
 - Regula Falsi method (`regula_falsi`)
 - Newton-Raphson method (`newton_raphson`)
 - Secant method (`secant`)
