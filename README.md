@@ -11,6 +11,32 @@ rootdescent currently includes the following classes and methods:
 This class provides methods for finding the roots of functions using various numerical approximation techniques. The available methods are:
 
 - Bisection method (`bisection`)
+
+```
+The bisection method is a root-finding method that repeatedly bisects an interval and then selects a
+subinterval in which a root must lie for further processing.
+It is a simple and robust numerical method for approximating the root of a continuous function in a given interval.
+
+Given a continuous function f(x) and an interval [a, b] such that f(a) and f(b) have opposite signs (i.e., f(a)*f(b) < 0),
+the bisection method can be used to find an approximation of the root. The method works as follows:
+
+Compute the midpoint c of the interval [a, b]
+
+
+c = (a + b) / 2
+
+Evaluate the function f(c) at the midpoint c.
+
+Determine the next interval based on the signs of f(a), f(b), and f(c):
+
+If f(c) == 0, then c is the root.
+If f(a)*f(c) < 0, the root lies in the interval [a, c], so update b = c.
+If f(b)*f(c) < 0, the root lies in the interval [c, b], so update a = c.
+
+Repeat steps 1-3 until the desired level of accuracy is achieved, or the maximum number of iterations is reached.
+
+```
+
 - Fixed-point iteration (`fixed_point_iteration`)
 - Regula Falsi method (`regula_falsi`)
 - Newton-Raphson method (`newton_raphson`)
