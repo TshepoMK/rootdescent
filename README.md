@@ -1,4 +1,4 @@
-# RootDescent
+# rootdescent
 
 rootdescent is a Python package for numerical analysis, offering tools for approximating roots and performing numerical integration.
 
@@ -6,13 +6,13 @@ rootdescent is a Python package for numerical analysis, offering tools for appro
 
 rootdescent currently includes the following classes and methods:
 
-### RootApproximator
+## 1. RootApproximator
 
 This class provides methods for finding the roots of functions using various numerical approximation techniques. The available methods are:
 
-- Bisection method (`bisection`)
 
-## Bisection Method
+
+### 1.1 Bisection Method
 
 The bisection method is a root-finding method that repeatedly bisects an interval and then selects a subinterval in which a root must lie for further processing. It is a simple and robust numerical method for approximating the root of a continuous function in a given interval.
 
@@ -29,9 +29,9 @@ Given a continuous function $f(x)$ and an interval $[a, b]$ such that $f(a)$ and
 
 
 
-- Fixed-point iteration (`fixed_point_iteration`)
 
-## Fixed Point Iteration and Formula
+
+### 1.2 Fixed-point iteration
 
 Fixed point iteration is a numerical method used to find the solution of an equation in the form x = g(x). The idea is to iteratively refine the approximation of the solution by applying the function g(x) to the previous approximation. Fixed point iteration converges to the true solution if the function g(x) fulfills certain conditions, such as having a derivative with absolute value less than 1 in the neighborhood of the fixed point.
 
@@ -53,9 +53,41 @@ To perform fixed point iteration, follow these steps:
 It is important to note that fixed point iteration may not always converge or could converge slowly, depending on the function $g(x)$ and the initial approximation. In such cases, alternative methods like the Newton-Raphson method or bisection method might be more appropriate.
 
 
-- Regula Falsi method (`regula_falsi`)
-- Newton-Raphson method (`newton_raphson`)
-- Secant method (`secant`)
+### 1.3 Regula Falsi method
+
+The Regula Falsi method, or false position method, is an iterative algorithm used to find the root of a function `f(x)`. It starts with an interval `[a, b]` such that `f(a)` and `f(b)` have opposite signs (i.e., `f(a) * f(b) < 0`). The method refines the interval by replacing one of its endpoints with the point of intersection of the line connecting `(a, f(a))` and `(b, f(b))` with the x-axis. This point is denoted as `c` and is calculated using the following formula:
+
+$$
+c = \frac{a f(b) - b f(a)}{f(b) - f(a)}
+$$
+
+If `f(c)` has the same sign as `f(a)`, the root lies in the interval `[c, b]`, so we update `a = c`. Otherwise, the root lies in the interval `[a, c]`, and we update `b = c`. We repeat this process until the desired level of accuracy is achieved or a maximum number of iterations is reached.
+
+
+### 1.4 Newton-Raphson method
+
+The Newton-Raphson method is an iterative algorithm used to find the root of a function `f(x)`. It is based on the idea of using a linear approximation to estimate the root. Starting with an initial guess `x_0`, the method iteratively refines the approximation using the following formula:
+
+$$
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+$$
+
+where `f'(x_n)` is the derivative of `f(x)` evaluated at the point `x_n`. The iterations continue until the desired level of accuracy is achieved, or a maximum number of iterations is reached.
+
+Keep in mind that the Newton-Raphson method requires the function to be differentiable and may not always converge to a root, depending on the initial guess and the function's properties.
+
+### 1.5 Secant method (`secant`)
+
+The Secant method is an iterative algorithm used to find the root of a function `f(x)`. It is based on the idea of using linear interpolation between two points to approximate the root. Starting with two initial guesses `x_0` and `x_1`, the method iteratively refines the approximation using the following formula:
+
+$$
+x_{n+1} = x_n - f(x_n) \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}
+$$
+
+The iterations continue until the desired level of accuracy is achieved, or a maximum number of iterations is reached.
+
+The Secant method does not require the function to be differentiable, but it does require two initial guesses. It is generally faster than the bisection method but may not always converge to a root, depending on the initial guesses and the function's properties.
+
 
 ### Integration
 
