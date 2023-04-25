@@ -89,13 +89,59 @@ The iterations continue until the desired level of accuracy is achieved, or a ma
 The Secant method does not require the function to be differentiable, but it does require two initial guesses. It is generally faster than the bisection method but may not always converge to a root, depending on the initial guesses and the function's properties.
 
 
-### Integration
+## 2. Integration
 
 This class provides methods for approximating definite integrals of functions using various numerical integration techniques. The available methods are:
 
-- Trapezoidal rule (`trapezoidal_rule`)
-- Simpson's 1/3 rule (`simpsons_13_rule`)
-- Simpson's 3/8 rule (`simpsons_38_rule`)
+### 2.1 Trapezoidal rule (`trapezoidal_rule`)
+
+The Trapezoidal rule is a numerical integration technique used to approximate the definite integral of a function. It works by approximating the area under the curve of the function by dividing it into a series of trapezoids and summing their areas. The formula for the Trapezoidal rule is:
+
+$$
+\int_{a}^{b} f(x) \, dx \approx \frac{b - a}{2n} \left[ f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n) \right]
+$$
+
+Where:
+
+- $f(x)$ is the function being integrated.
+- $a$ and $b$ are the limits of integration.
+- $n$ is the number of trapezoids (or subintervals) used in the approximation.
+- $x_i = a + i\frac{b - a}{n}$, where $i$ ranges from $0$ to $n$.
+
+The trapezoidal rule works well for functions that are relatively smooth and have no abrupt changes. The accuracy of the approximation increases as the number of trapezoids ($n$) increases. However, for functions with rapid changes or singularities, other numerical integration methods, such as Simpson's rule or Gaussian quadrature, may provide more accurate results.
+
+### 2.2 Simpson's 1/3 rule (`simpsons_13_rule`)
+Simpson's 1/3 rule, also known as Simpson's rule, is a numerical integration technique used to approximate the definite integral of a function. It works by approximating the area under the curve of the function using parabolic segments. The formula for Simpson's 1/3 rule is:
+
+$$
+\int_{a}^{b} f(x) \, dx \approx \frac{b - a}{3n} \left[ f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \cdots + 2f(x_{n-2}) + 4f(x_{n-1}) + f(x_n) \right]
+$$
+
+Where:
+
+- $f(x)$ is the function being integrated.
+- $a$ and $b$ are the limits of integration.
+- $n$ is the number of equally spaced subintervals, and it must be an even number.
+- $x_i = a + i\frac{b - a}{n}$, where $i$ ranges from $0$ to $n$.
+
+Simpson's 1/3 rule generally provides more accurate results than the Trapezoidal rule, especially for functions that are relatively smooth and have no abrupt changes. The accuracy of the approximation increases as the number of subintervals ($n$) increases. However, for functions with rapid changes, singularities, or other irregularities, other numerical integration methods, such as Simpson's 3/8 rule or Gaussian quadrature, may provide more accurate results.
+
+### 2.3 Simpson's 3/8 rule (`simpsons_38_rule`)
+
+ Simpson's 3/8 rule is another numerical integration technique used to approximate the definite integral of a function. It works by approximating the area under the curve of the function using cubic segments. The formula for Simpson's 3/8 rule is:
+
+$$
+\int_{a}^{b} f(x) \, dx \approx \frac{3(b - a)}{8n} \left[ f(x_0) + 3f(x_1) + 3f(x_2) + 2f(x_3) + 3f(x_4) + \cdots + 3f(x_{n-1}) + f(x_n) \right]
+$$
+
+Where:
+
+- $f(x)$ is the function being integrated.
+- $a$ and $b$ are the limits of integration.
+- $n$ is the number of equally spaced subintervals, and it must be a multiple of 3.
+- $x_i = a + i\frac{b - a}{n}$, where $i$ ranges from $0$ to $n$.
+
+Simpson's 3/8 rule provides another option for approximating integrals and can be more accurate than Simpson's 1/3 rule in certain cases. The accuracy of the approximation increases as the number of subintervals ($n$) increases. However, for functions with rapid changes, singularities, or other irregularities, other numerical integration methods, such as Gaussian quadrature, may provide more accurate results.
 
 ## Usage
 
