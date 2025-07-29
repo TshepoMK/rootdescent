@@ -1,27 +1,25 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
-
 setup(
     name="rootdescent",
-    version="0.1.0",
+    version="0.0.2",
     author="Tshepo Moagi",
-    author_email="tshepo.k.moagi@gmail.com",
-    description="A package for approximating roots using various methods.",
-    long_description=long_description,
+    author_email="youremail@example.com",
+    description="A numerical analysis package for solving roots using bisection, secant, and Newton-Raphson methods.",
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/tshepomk/rootdescent",
+    url="https://github.com/TshepoMK/rootdescent",
+    project_urls={
+        "PyPI": "https://pypi.org/project/rootdescent/",
+        "Source": "https://github.com/TshepoMK/rootdescent",
+    },
     packages=find_packages(),
     classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Education",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Programming Language :: C",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
+        "Intended Audience :: Education",
+        "Topic :: Scientific/Engineering :: Mathematics",
     ],
-    python_requires=">=3.6",
+    python_requires='>=3.6',
 )
